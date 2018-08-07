@@ -2,6 +2,16 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QStackedWidget>
+#include <QMenu>
+#include <QAction>
+#include <QMessageBox>
+
+#include "form_setting.h"
+#include "form_cam.h"
+#include "form_layout.h"
+#include "form_count.h"
+#include "form_product.h"
 
 namespace Ui {
 class MainWindow;
@@ -15,25 +25,23 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-signals:
-    void display(int number);
-
-
 private slots:
-    void pop1();
-
-    void on_btn_shift1_clicked();
-
-    void on_btn_shift2_clicked();
-
-    void on_btn_shift3_clicked();
-
-    void on_btn_shift4_clicked();
+    void Event_popFormCount();
 
 private:
+
     void InitMenuBar();         //初始化菜单栏
-    void InitForm();            //初始化tabWidget和页面
+    void InitForm();            //初始化listWidget和stackedWidget
+
     Ui::MainWindow *ui;
+
+    Form_Setting * P1_setting;
+    Form_cam * P2_image;
+    Form_layout * P3_layout;
+    Form_product * P4_product;
+    Form_count * P5_cnt;
+
+
 };
 
 #endif // MAINWINDOW_H

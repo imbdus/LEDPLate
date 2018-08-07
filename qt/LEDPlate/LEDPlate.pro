@@ -27,18 +27,26 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     myapp.cpp \
-    formone.cpp \
-    formtwo.cpp \
-    formthree.cpp
+    form_setting.cpp \
+    form_cam.cpp \
+    form_layout.cpp \
+    form_product.cpp \
+    form_count.cpp
 
 HEADERS += \
         mainwindow.h \
-    formone.h \
-    formtwo.h \
-    formthree.h
+    form_setting.h \
+    form_cam.h \
+    form_layout.h \
+    form_product.h \
+    form_count.h
+
 
 FORMS += \
         mainwindow.ui \
-    formone.ui \
-    formtwo.ui \
-    formthree.ui
+    form_setting.ui \
+    form_cam.ui \
+    form_layout.ui \
+    form_product.ui \
+    form_count.ui
+
