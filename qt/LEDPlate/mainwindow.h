@@ -1,6 +1,18 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+/* **
+ * @name: class MainWindow
+ * @Author: bdus
+ * @time: 2018-8-6 17:23:54
+ * @description:
+ *        软件的主体窗口
+ *          完成  软件的初始化
+ *               子页面的初始化
+ *
+
+*/
+
 #include <QMainWindow>
 #include <QStackedWidget>
 #include <QMenu>
@@ -12,6 +24,8 @@
 #include "form_layout.h"
 #include "form_count.h"
 #include "form_product.h"
+#include "utilize.h"
+#include "myapp.h"
 
 namespace Ui {
 class MainWindow;

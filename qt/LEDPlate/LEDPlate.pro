@@ -39,7 +39,9 @@ HEADERS += \
     form_cam.h \
     form_layout.h \
     form_product.h \
-    form_count.h
+    form_count.h \
+    myapp.h \
+    utilize.h
 
 
 FORMS += \

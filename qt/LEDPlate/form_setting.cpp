@@ -1,6 +1,8 @@
 #include "form_setting.h"
 #include "ui_form_setting.h"
 
+#include <QMessageBox>
+
 Form_Setting::Form_Setting(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Form_Setting)
@@ -15,3 +17,5 @@ Form_Setting::~Form_Setting()
 {
     delete ui;
 }
+
+

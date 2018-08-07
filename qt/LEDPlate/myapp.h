@@ -19,37 +19,58 @@ class myApp : public QObject
     Q_OBJECT
 
 public:
-    //static myApp * Instance();
+    static myApp * getInstance()
+    {
+        return m_pInstance;
+    }
+    static void Release()
+    {
+        if (m_pInstance != NULL)
+        {
+            delete m_pInstance;
+            m_pInstance = NULL;
+        }
+    }
 
 
-    //System info
+    //       ========    Software    ========
+
     QString Path_App;                    //software root path
-
 
     //software configs
     QString AppTitle;                   //software name
     QString Path_layout;                //path where to save the partition diagram file
     //QString Path_config;                //path where to save the app configuration file
-    //const QString Name_config;                //filename of configration (.ini) file
+    const QString Name_config;                //filename of configration (.ini) file
     QString Path_ResultImg;             //path where to save the dection result
     QString Path_log;
 
+
+    // =========    Camera parameters   ========
+        //参考SDK
+
+    double Cam_focus;   //焦距
+    double Cam_time;    //曝光时间
+
+    // =========    layout file chosen   =========
+
+    QString Layout_name;    //正在使用的layout
+
+    // ========    .ini file  ==========
 
     void ReadConfig();
     void WriteConfig();
 
 private:
-    myApp()
-    {
-        //init
-        ;
+    myApp();
+    myApp(const myApp&) {}
+    myApp& operator ==(const myApp&) {}
 
-    }
 
-    ~myApp();
+private:
+    static myApp* m_pInstance;
 
 };
 
-//const QString myApp::Name_config = "config.ini";
 
 #endif // MYAPP_H

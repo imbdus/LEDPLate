@@ -8,7 +8,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     InitForm();
-
     InitMenuBar();
 }
 
@@ -55,15 +54,15 @@ void MainWindow::InitForm()
     P3_layout    = new Form_layout(this);
     P4_product   = new Form_product(this);
 
-    ui->stackedWidget->addWidget(P1_setting);
-    ui->stackedWidget->addWidget(P2_image);
-    ui->stackedWidget->addWidget(P3_layout);
     ui->stackedWidget->addWidget(P4_product);
+    ui->stackedWidget->addWidget(P3_layout);
+    ui->stackedWidget->addWidget(P2_image);
+    ui->stackedWidget->addWidget(P1_setting);
+
     ui->stackedWidget->setCurrentWidget(P1_setting);
     P1_setting->show();
 
     connect(ui->listWidget,SIGNAL(currentRowChanged(int)),ui->stackedWidget,SLOT(setCurrentIndex(int)));
-
 }
 
 
