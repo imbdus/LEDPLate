@@ -2,6 +2,7 @@
 #define FORM_LAYOUT_H
 
 #include <QWidget>
+#include "cqlabel.h"
 
 namespace Ui {
 class Form_layout;
@@ -17,6 +18,8 @@ public:
 
 private:
     Ui::Form_layout *ui;
+
+    void initCQLabel();
 };
 
 #endif // FORM_LAYOUT_H

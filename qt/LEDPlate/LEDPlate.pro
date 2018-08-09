@@ -31,7 +31,8 @@ SOURCES += \
     form_cam.cpp \
     form_layout.cpp \
     form_product.cpp \
-    form_count.cpp
+    form_count.cpp \
+    cqlabel.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -41,7 +42,8 @@ HEADERS += \
     form_product.h \
     form_count.h \
     myapp.h \
-    utilize.h
+    utilize.h \
+    cqlabel.h
 
 
 FORMS += \
