@@ -65,6 +65,29 @@ void MainWindow::InitForm()
     connect(ui->listWidget,SIGNAL(currentRowChanged(int)),ui->stackedWidget,SLOT(setCurrentIndex(int)));
 }
 
+void MainWindow::InitApp()
+{
+
+    myApp * ins = myApp::getInstance();
+    //ins->Name_config = "config.ini";
+    ins->Path_App = QDir::currentPath();
+    QString path = ins->Path_App + '/' + ins->Name_config;
+    if(utilize::FileIsExist(path))
+    {
+        ins->ReadConfig(ins,path);
+    }else {
+        ins->AppTitle = "APP";
+        ins->Path_layoutSaveto = "LayoutSave";
+        ins->Path_ResultImg = "ImgResults";
+        ins->ExposureTimeAbs = 0.01;
+        ins->GainRaw = .0;
+        ins->Width = 640;
+        ins->Height = 480;
+        ins->Layout_index = 0;
+        ins->WriteConfig(ins);
+    }
+}
+
 
 
 

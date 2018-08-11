@@ -2,6 +2,19 @@
 
 myApp* myApp::m_pInstance = new myApp;
 //myApp::myApp(QObject *parent) : QObject(parent)
+
+void myApp::ReadConfig(myApp *&ins, QString &path)
+{
+
+}
+
+void myApp::WriteConfig(myApp *&ins)
+{
+
+}
+
+
+
 myApp::myApp()
 {    
 //    QString Path_App = QDir::currentPath();

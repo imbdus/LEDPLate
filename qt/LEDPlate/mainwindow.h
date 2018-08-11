@@ -46,6 +46,7 @@ private:
 
     void InitMenuBar();         //初始化菜单栏
     void InitForm();            //初始化listWidget和stackedWidget
+    void InitApp();             //初始化myApp实例
 
     Ui::MainWindow *ui;
 

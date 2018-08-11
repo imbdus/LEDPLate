@@ -45,26 +45,30 @@ public:
     QString AppTitle;                   //software name
     QString Path_layoutSaveto;                //path where to save the partition diagram file
     //QString Path_config;                //path where to save the app configuration file
-    const QString Name_config;                //filename of configration (.ini) file
+    const QString Name_config = "config.ini";                //filename of configration (.ini) file
     QString Path_ResultImg;             //path where to save the dection result
-    QString Path_log;
+    //QString Path_log;
 
 
     // =========    Camera parameters   ========
         //参考SDK
 
-    double Cam_focus;   //焦距
-    double Cam_time;    //曝光时间
+    double ExposureTimeAbs;
+    double GainRaw ;
+    uint32_t Width;
+    uint32_t Height ;
 
     // =========    layout file chosen   =========
 
     //QString Path_layoutSavto;
     QString Layout_name;    //正在使用的layout
+    int Layout_index;
+
 
     // ========    .ini file  ==========
 
-    void ReadConfig();
-    void WriteConfig();
+    void ReadConfig(myApp *&ins);
+    void WriteConfig(myApp *&ins);
 
 private:
     //myApp(QObject *parent = 0);
