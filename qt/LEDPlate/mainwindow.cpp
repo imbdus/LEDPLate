@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    InitApp();
     InitForm();
     InitMenuBar();
 }
@@ -69,22 +70,22 @@ void MainWindow::InitApp()
 {
 
     myApp * ins = myApp::getInstance();
-    //ins->Name_config = "config.ini";
-    ins->Path_App = QDir::currentPath();
-    QString path = ins->Path_App + '/' + ins->Name_config;
+    ins->data.Name_config = "config.dat";
+    ins->data.Path_App = QDir::currentPath();
+    QString path = ins->data.Path_App + '/' + ins->data.Name_config;
     if(utilize::FileIsExist(path))
     {
-        ins->ReadConfig(ins,path);
+        ins->ReadConfig(ins);//,path);
     }else {
-        ins->AppTitle = "APP";
-        ins->Path_layoutSaveto = "LayoutSave";
-        ins->Path_ResultImg = "ImgResults";
-        ins->ExposureTimeAbs = 0.01;
-        ins->GainRaw = .0;
-        ins->Width = 640;
-        ins->Height = 480;
-        ins->Layout_index = 0;
-        ins->WriteConfig(ins);
+        ins->data.AppTitle = "APP";
+        ins->data.Path_layoutSaveto = ins->data.Path_App + '/' + "LayoutSave";
+        ins->data.Path_ResultImg = ins->data.Path_App + '/' + "ImgResults";
+        ins->data.ExposureTimeAbs = 0.01;
+        ins->data.GainRaw = .0;
+        ins->data.Width = 640;
+        ins->data.Height = 480;
+        ins->data.Layout_index = 0;
+        ins->WriteConfig(ins);//,path);
     }
 }
 

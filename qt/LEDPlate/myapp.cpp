@@ -3,16 +3,29 @@
 myApp* myApp::m_pInstance = new myApp;
 //myApp::myApp(QObject *parent) : QObject(parent)
 
-void myApp::ReadConfig(myApp *&ins, QString &path)
+void myApp::ReadConfig(myApp *&ins)//, QString &path)
 {
-
+    FILE * fp;
+    fp = std::fopen("config.dat","w+");
+    if(!fp)
+        mmsg("can not open")
+    std::fread(&ins->data,sizeof(ins->data),1,fp);
+    std::fclose(fp);
 }
 
-void myApp::WriteConfig(myApp *&ins)
+void myApp::WriteConfig(myApp *&ins)//, QString &path)
 {
-
+    //if(true == utilize::FileIsExist(path))
+    //{
+//        QFile fp(path);
+        FILE * fp;
+        fp = std::fopen("config.dat","w+");
+        if(!fp)
+            mmsg("can not open")
+        std::fwrite(&ins->data,sizeof(ins->data),1,fp);
+        std::fclose(fp);
+    //}
 }
-
 
 
 myApp::myApp()

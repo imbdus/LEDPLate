@@ -8,7 +8,7 @@
 #include <QFile>
 #include <QMessageBox>
 
-#define mmsg(X) QMessageBox::information(this,"message",X);
+#define mmsg(X) QMessageBox::information(NULL,"message",X);
 /* **
  * @name: class utilize
  * @Author: bdus

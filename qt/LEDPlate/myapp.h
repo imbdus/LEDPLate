@@ -8,6 +8,8 @@
 #include <QCoreApplication>
 #include <QMessageBox>
 #include <QDir>
+#include <iostream>
+//#include <QFile>
 /* **
  * @name: class myApp
  * @Author: bdus
@@ -17,6 +19,35 @@
  *
 
 */
+typedef struct myAppData_{
+    //       ========    Software    ========
+
+    QString Path_App;                    //software root path
+
+    //software configs
+    QString AppTitle;                   //software name
+    QString Path_layoutSaveto;                //path where to save the partition diagram file
+    //QString Path_config;                //path where to save the app configuration file
+    QString Name_config;// = "config.dat";                //filename of configration (.ini) file
+    QString Path_ResultImg;             //path where to save the dection result
+    //QString Path_log;
+
+
+    // =========    Camera parameters   ========
+        //参考SDK
+
+    double ExposureTimeAbs;
+    double GainRaw ;
+    uint32_t Width;
+    uint32_t Height ;
+
+    // =========    layout file chosen   =========
+
+    //QString Path_layoutSavto;
+    QString Layout_name;    //正在使用的layout
+    int Layout_index;
+}myAppData;
+
 
 class myApp : public QObject
 {
@@ -36,46 +67,18 @@ public:
         }
     }
 
-
-    //       ========    Software    ========
-
-    QString Path_App;                    //software root path
-
-    //software configs
-    QString AppTitle;                   //software name
-    QString Path_layoutSaveto;                //path where to save the partition diagram file
-    //QString Path_config;                //path where to save the app configuration file
-    const QString Name_config = "config.ini";                //filename of configration (.ini) file
-    QString Path_ResultImg;             //path where to save the dection result
-    //QString Path_log;
-
-
-    // =========    Camera parameters   ========
-        //参考SDK
-
-    double ExposureTimeAbs;
-    double GainRaw ;
-    uint32_t Width;
-    uint32_t Height ;
-
-    // =========    layout file chosen   =========
-
-    //QString Path_layoutSavto;
-    QString Layout_name;    //正在使用的layout
-    int Layout_index;
-
+    myAppData data;
 
     // ========    .ini file  ==========
 
-    void ReadConfig(myApp *&ins);
-    void WriteConfig(myApp *&ins);
+    void ReadConfig(myApp *&ins);//,QString &path);
+    void WriteConfig(myApp *&ins);//, QString &path);
 
 private:
     //myApp(QObject *parent = 0);
     myApp();
     myApp(const myApp&) {}
     myApp& operator ==(const myApp&) {}
-
 
 private:
     static myApp* m_pInstance;

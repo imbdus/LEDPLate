@@ -46,7 +46,7 @@ void Form_layout::initCQLabel()
 void Form_layout::on_btn_save_clicked()
 {
     myApp * tmpapp = myApp::getInstance();
-    QString path = tmpapp->Path_App + "/" + tmpapp->Path_layoutSaveto;
+    QString path = tmpapp->data.Path_layoutSaveto;
     if(!utilize::FolderIsExist(path) && !utilize::Mkdir(path))
             mmsg("folder fail")
     //qDebug() << "Path_App" << '\n';
@@ -60,8 +60,6 @@ void Form_layout::on_btn_save_clicked()
         mmsg("can not open" + filename);
     }
     else {
-        //fp << QString::number(clabel->m_layout.size()) << '\n';
-
         for(int i = 0; i < clabel->m_layout.size(); i++)
         {
             QString str = \
@@ -74,6 +72,7 @@ void Form_layout::on_btn_save_clicked()
                 fp.write("\n");
         }
     }
+    fp.close();
 }
 
 void Form_layout::on_pushButton_clicked()
