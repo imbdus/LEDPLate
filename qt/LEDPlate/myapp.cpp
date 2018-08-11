@@ -30,44 +30,29 @@ void myApp::WriteConfig(myApp *&ins)//, QString &path)
 
 myApp::myApp()
 {    
-//    QString Path_App = QDir::currentPath();
-//    qDebug() << tr("Path_App") << '\n';
-//    Path_layoutSaveto = "LayoutConfig";
-//    if(!utilize::Mkdir(Path_App + Path_layoutSaveto))
-//        qDebug() << "path fail" <<'\n';
+//    void MainWindow::InitApp()
+//    {
+
+//        myApp * ins = myApp::getInstance();
+//        ins->data.Name_config = "config.dat";
+//        ins->data.Path_App = QDir::currentPath();
+//        QString path = ins->data.Path_App + '/' + ins->data.Name_config;
+//        if(utilize::FileIsExist(path))
+//        {
+//            ins->ReadConfig(ins);//,path);
+//        }else {
+//            ins->data.AppTitle = "APP";
+//            ins->data.Path_layoutSaveto = ins->data.Path_App + '/' + "LayoutSave";
+//            ins->data.Path_ResultImg = ins->data.Path_App + '/' + "ImgResults";
+//            ins->data.ExposureTimeAbs = 0.01;
+//            ins->data.GainRaw = .0;
+//            ins->data.Width = 640;
+//            ins->data.Height = 480;
+//            ins->data.Layout_index = 0;
+//            ins->WriteConfig(ins);//,path);
+//        }
+//    }
 
 
-    //readConfig()
 }
 
-//void myApp::ReadConfig()
-//{
-//    QString fileName = myApp::AppPath + "config.txt";
-//    //如果配置文件不存在,则以初始值继续运行
-//    if (!myHelper::FileIsExist(fileName)) {
-//        qDebug()<<"Config File Doesn't Exist";
-//        return;
-//    }
-//    QSettings *set = new QSettings(fileName, QSettings::IniFormat);
-//    set->beginGroup("AppConfig");
-//    myApp::AlertPicPath = set->value("AlertPicPath").toString();
-//    myApp::ObjectPicPath = set->value("ObjectPicPath").toString();
-//    myApp::UserName = set->value("UserName").toString();
-//    myApp::Password = set->value("Password").toString();
-//    myApp::HostName = set->value("HostName").toString();
-//    myApp::DatabaseName = set->value("DatabaseName").toString();
-//    set->endGroup();
-//}
-
-//void myApp::WriteConfig()
-//{
-//    QString fileName = myApp::AppPath+"config.txt";
-//    QSettings *set = new QSettings(fileName,QSettings::IniFormat);
-//    set->beginGroup("AppConfig");
-//    set->setValue("AlertPicPath", myApp::AlertPicPath);
-//    set->setValue("UserName", myApp::UserName);
-//    set->setValue("Password", myApp::Password);
-//    set->setValue("HostName", myApp::HostName);
-//    set->setValue("DatabaseName", myApp::DatabaseName);
-//    set->endGroup();
-//}
