@@ -1,11 +1,14 @@
 #ifndef UTILIZE_H
 #define UTILIZE_H
+#include <QDebug>
 #include <QObject>
 #include <QRect>
 #include <QList>
 #include <QDir>
 #include <QFile>
+#include <QMessageBox>
 
+#define mmsg(X) QMessageBox::information(this,"message",X);
 /* **
  * @name: class utilize
  * @Author: bdus
@@ -16,12 +19,12 @@
 
 */
 
-typedef struct _rectangle
-{
-    int x;
-    int y;
-}rect;
-typedef QList<rect> layout;
+//typedef struct _rectangle
+//{
+//    int x;
+//    int y;
+//}rect;
+//typedef QList<rect> layout;
 
 
 
@@ -40,6 +43,14 @@ public:
         QDir tempFolder(strFolder);
         return tempFolder.exists();
     }
+
+    static bool Mkdir(QString &foldername) {
+        QDir tmpfolder(foldername);
+        if(false == tmpfolder.exists())
+            return tmpfolder.mkdir(foldername);
+        return 0;
+    }
+
 
 
 };

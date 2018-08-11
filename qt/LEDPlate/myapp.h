@@ -1,9 +1,13 @@
 #ifndef MYAPP_H
 #define MYAPP_H
 #include <QObject>
+#include <QDebug>
 #include <QString>
 #include <QSettings>
-
+#include "utilize.h"
+#include <QCoreApplication>
+#include <QMessageBox>
+#include <QDir>
 /* **
  * @name: class myApp
  * @Author: bdus
@@ -39,7 +43,7 @@ public:
 
     //software configs
     QString AppTitle;                   //software name
-    QString Path_layout;                //path where to save the partition diagram file
+    QString Path_layoutSaveto;                //path where to save the partition diagram file
     //QString Path_config;                //path where to save the app configuration file
     const QString Name_config;                //filename of configration (.ini) file
     QString Path_ResultImg;             //path where to save the dection result
@@ -54,6 +58,7 @@ public:
 
     // =========    layout file chosen   =========
 
+    //QString Path_layoutSavto;
     QString Layout_name;    //正在使用的layout
 
     // ========    .ini file  ==========
@@ -62,6 +67,7 @@ public:
     void WriteConfig();
 
 private:
+    //myApp(QObject *parent = 0);
     myApp();
     myApp(const myApp&) {}
     myApp& operator ==(const myApp&) {}

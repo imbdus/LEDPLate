@@ -1,9 +1,17 @@
 #include "myapp.h"
 
 myApp* myApp::m_pInstance = new myApp;
-myApp::myApp() //(QObject *parent) : QObject(parent)
-{
+//myApp::myApp(QObject *parent) : QObject(parent)
+myApp::myApp()
+{    
+//    QString Path_App = QDir::currentPath();
+//    qDebug() << tr("Path_App") << '\n';
+//    Path_layoutSaveto = "LayoutConfig";
+//    if(!utilize::Mkdir(Path_App + Path_layoutSaveto))
+//        qDebug() << "path fail" <<'\n';
 
+
+    //readConfig()
 }
 
 //void myApp::ReadConfig()

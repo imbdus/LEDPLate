@@ -5,7 +5,13 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    //
+    myApp * ins = myApp::getInstance();
+    ins->Path_App = QDir::currentPath();
+    ins->Path_layoutSaveto = "LayoutSave";
 
+
+    //
     MainWindow w;
     w.show();
 
