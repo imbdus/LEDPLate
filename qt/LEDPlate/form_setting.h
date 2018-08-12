@@ -35,6 +35,7 @@ private:
     myApp * instance;
     QStringList fileNameList;
     QStringList filePathList;
+    //QLabel * label_paint;
 
 private:
     void InitSetting();

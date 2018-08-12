@@ -65,7 +65,7 @@ public:
                 char * str = line.data();
                 sscanf(str,"%d %d %d %d",&x,&y,&w,&h);
                 //qDebug() << x + ' ' + y + ' ' + w  + ' ' + h <<'\n';
-                mmsg(str)
+                //mmsg(str)
                 //delete(str);
                 mylayout.append(QRect(x,y,w,h));
             }
