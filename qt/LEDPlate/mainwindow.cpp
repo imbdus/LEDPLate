@@ -6,7 +6,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
     InitApp();
     InitForm();
     InitMenuBar();
@@ -64,11 +63,11 @@ void MainWindow::InitForm()
     P1_setting->show();
 
     connect(ui->listWidget,SIGNAL(currentRowChanged(int)),ui->stackedWidget,SLOT(setCurrentIndex(int)));
+    connect(ui->listWidget,SIGNAL(currentRowChanged(int)),P1_setting,SLOT(on_pushButton_clicked()));
 }
 
 void MainWindow::InitApp()
 {
-
     myApp * ins = myApp::getInstance();
     ins->data.Name_config = "config.dat";
     ins->data.Path_App = QDir::currentPath();
@@ -86,10 +85,9 @@ void MainWindow::InitApp()
         ins->data.Height = 480;
         ins->data.Layout_index = 0;
         ins->WriteConfig(ins);//,path);
+        mmsg(ins->data.Path_layoutSaveto)
     }
 }
-
-
 
 
 void MainWindow::InitMenuBar()
