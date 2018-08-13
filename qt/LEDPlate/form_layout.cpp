@@ -77,6 +77,6 @@ void Form_layout::on_btn_save_clicked()
 
 void Form_layout::on_pushButton_clicked()
 {
-    clabel->m_layout.clear();
+    clabel->m_layout.clear();    
     update();
 }
