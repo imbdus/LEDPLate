@@ -1,8 +1,6 @@
 #include "form_setting.h"
 #include "ui_form_setting.h"
 
-#include <QMessageBox>
-
 Form_Setting::Form_Setting(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Form_Setting)
@@ -92,3 +90,32 @@ void Form_Setting::on_comboBox_currentIndexChanged(int index)
     }
 }
 
+
+void Form_Setting::on_btn_layout_clicked()
+{
+    QFileDialog * fdig = new QFileDialog(this);
+    QString file_path = fdig->getExistingDirectory(this,"请选择保存划分的位置..","./LayoutSave");
+    if(file_path.isEmpty() || false == utilize::FolderIsExist(file_path))
+    {
+        QMessageBox::information(NULL,"ERROR","路径为空或不存在");
+    }
+    else {
+        instance->data.Path_layoutSaveto = file_path;
+        ui->le_layout->setText(file_path);
+    }
+
+}
+
+void Form_Setting::on_btn_result_clicked()
+{
+    QFileDialog * fdig = new QFileDialog(this);
+    QString file_path = fdig->getExistingDirectory(this,"请选择保存检测结果的位置..","./ResultImg");
+    if(file_path.isEmpty() || false == utilize::FolderIsExist(file_path))
+    {
+        QMessageBox::information(NULL,"ERROR","路径为空或不存在");
+    }
+    else {
+        instance->data.Path_ResultImg = file_path;
+        ui->le_result->setText(file_path);
+    }
+}

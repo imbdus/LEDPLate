@@ -9,6 +9,8 @@
 #include <QPainter>
 #include <QPaintDevice>
 #include <QPaintEngine>
+#include <QFileDialog>
+#include <QMessageBox>
 
 namespace Ui {
 class Form_Setting;
@@ -29,6 +31,10 @@ private slots:
     void on_pushButton_clicked();
 
     void on_comboBox_currentIndexChanged(int index);
+
+    void on_btn_layout_clicked();
+
+    void on_btn_result_clicked();
 
 private:
     Ui::Form_Setting *ui;

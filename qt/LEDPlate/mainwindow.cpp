@@ -78,15 +78,21 @@ void MainWindow::InitApp()
     }else {
         ins->data.AppTitle = "APP";
         ins->data.Path_layoutSaveto = ins->data.Path_App + '/' + "LayoutSave";
-        ins->data.Path_ResultImg = ins->data.Path_App + '/' + "ImgResults";
+        ins->data.Path_ResultImg = ins->data.Path_App + '/' + "ResultImg";
         ins->data.ExposureTimeAbs = 0.01;
         ins->data.GainRaw = .0;
         ins->data.Width = 640;
         ins->data.Height = 480;
         ins->data.Layout_index = 0;
         ins->WriteConfig(ins);//,path);
-        mmsg(ins->data.Path_layoutSaveto)
+        //mmsg(ins->data.Path_layoutSaveto)
+        if(!utilize::FolderIsExist(ins->data.Path_layoutSaveto) && !utilize::Mkdir(ins->data.Path_layoutSaveto))
+                mmsg("folder fail")
+        if(!utilize::FolderIsExist(ins->data.Path_ResultImg) && !utilize::Mkdir(ins->data.Path_ResultImg))
+                mmsg("folder fail")
     }
+
+
 }
 
 
