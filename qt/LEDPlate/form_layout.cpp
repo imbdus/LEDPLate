@@ -67,7 +67,7 @@ void Form_layout::on_btn_save_clicked()
                     QString::number( clabel->m_layout[i].y()) + ' ' + \
                     QString::number( clabel->m_layout[i].width()) + ' ' + \
                     QString::number( clabel->m_layout[i].height());
-            fp.write(str.toLocal8Bit().data());
+            fp.write(str.toLocal8Bit());
             if(i != clabel->m_layout.size() -1)
                 fp.write("\n");
         }
@@ -77,6 +77,6 @@ void Form_layout::on_btn_save_clicked()
 
 void Form_layout::on_pushButton_clicked()
 {
-    clabel->m_layout.clear();
+    clabel->m_layout.clear();    
     update();
 }

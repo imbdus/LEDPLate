@@ -6,7 +6,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
     InitApp();
     InitForm();
     InitMenuBar();
@@ -64,11 +63,11 @@ void MainWindow::InitForm()
     P1_setting->show();
 
     connect(ui->listWidget,SIGNAL(currentRowChanged(int)),ui->stackedWidget,SLOT(setCurrentIndex(int)));
+    connect(ui->listWidget,SIGNAL(currentRowChanged(int)),P1_setting,SLOT(on_pushButton_clicked()));
 }
 
 void MainWindow::InitApp()
 {
-
     myApp * ins = myApp::getInstance();
     ins->data.Name_config = "config.dat";
     ins->data.Path_App = QDir::currentPath();
@@ -79,17 +78,22 @@ void MainWindow::InitApp()
     }else {
         ins->data.AppTitle = "APP";
         ins->data.Path_layoutSaveto = ins->data.Path_App + '/' + "LayoutSave";
-        ins->data.Path_ResultImg = ins->data.Path_App + '/' + "ImgResults";
+        ins->data.Path_ResultImg = ins->data.Path_App + '/' + "ResultImg";
         ins->data.ExposureTimeAbs = 0.01;
         ins->data.GainRaw = .0;
         ins->data.Width = 640;
         ins->data.Height = 480;
         ins->data.Layout_index = 0;
         ins->WriteConfig(ins);//,path);
+        //mmsg(ins->data.Path_layoutSaveto)
+        if(!utilize::FolderIsExist(ins->data.Path_layoutSaveto) && !utilize::Mkdir(ins->data.Path_layoutSaveto))
+                mmsg("folder fail")
+        if(!utilize::FolderIsExist(ins->data.Path_ResultImg) && !utilize::Mkdir(ins->data.Path_ResultImg))
+                mmsg("folder fail")
     }
+
+
 }
-
-
 
 
 void MainWindow::InitMenuBar()

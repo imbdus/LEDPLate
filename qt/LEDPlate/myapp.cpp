@@ -52,7 +52,10 @@ myApp::myApp()
 //            ins->WriteConfig(ins);//,path);
 //        }
 //    }
+<<<<<<< HEAD
 
+=======
+>>>>>>> lcx
 
 }
 

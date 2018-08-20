@@ -54,3 +54,16 @@ FORMS += \
     form_product.ui \
     form_count.ui
 
+
+
+#--------------------------------------------Basler Camera-------------------------------------------
+INCLUDEPATH += $$PWD/include
+LIBS += -L$$PWD/lib/x64 -lGCBase_MD_VC120_v3_0_Basler_pylon_v5_0 -lGenApi_MD_VC120_v3_0_Basler_pylon_v5_0 -lPylonBase_MD_VC120_v5_0 -lPylonC_MD_VC120 -lPylonGUI_MD_VC120_v5_0 -lPylonUtility_MD_VC120_v5_0
+
+#INCLUDEPATH += E:\lcx\project\LEDPlate\LEDPLate\qt\LEDPlate\include
+#LIBS += -LE:\lcx\project\LEDPlate\LEDPLate\qt\LEDPlate\lib\x64 -lGCBase_MD_VC120_v3_0_Basler_pylon_v5_0 -lGenApi_MD_VC120_v3_0_Basler_pylon_v5_0 -lPylonBase_MD_VC120_v5_0 -lPylonC_MD_VC120 -lPylonGUI_MD_VC120_v5_0 -lPylonUtility_MD_VC120_v5_0
+
+#INCLUDEPATH += $$quote(D:\Program Files (x86)\led_sdk\Development\include)
+#LIBS += $$quote(D:\Program Files (x86)\led_sdk\Development\lib\x64\*.lib)
+
+#----------------------------------------------------------------------------------------------

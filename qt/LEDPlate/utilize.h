@@ -51,6 +51,29 @@ public:
         return 0;
     }
 
+    static bool getLayout(QVector<QRect> &mylayout, QString &path) {
+        QFile fp(path);
+        if(false == fp.exists())
+            return false;
+        if(!fp.open(QIODevice::ReadOnly))
+            return false;
+        else {
+            mylayout.clear();
+            int x,y,w,h;
+            while (!fp.atEnd()) {
+                QByteArray line = fp.readLine();
+                char * str = line.data();
+                sscanf(str,"%d %d %d %d",&x,&y,&w,&h);
+                //qDebug() << x + ' ' + y + ' ' + w  + ' ' + h <<'\n';
+                //mmsg(str)
+                //delete(str);
+                mylayout.append(QRect(x,y,w,h));
+            }
+        }
+
+    }
+
+
 
 
 };
