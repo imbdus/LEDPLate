@@ -21,7 +21,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-
+#--------------------------------------------Basler Camera-------------------------------------------
+INCLUDEPATH += $$PWD/include
+LIBS += -L$$PWD/lib/x64 -lGCBase_MD_VC120_v3_0_Basler_pylon_v5_0 -lGenApi_MD_VC120_v3_0_Basler_pylon_v5_0 -lPylonBase_MD_VC120_v5_0 -lPylonC_MD_VC120 -lPylonGUI_MD_VC120_v5_0 -lPylonUtility_MD_VC120_v5_0
+#----------------------------------------------------------------------------------------------
 
 SOURCES += \
         main.cpp \
@@ -32,7 +35,9 @@ SOURCES += \
     form_layout.cpp \
     form_product.cpp \
     form_count.cpp \
-    cqlabel.cpp
+    cqlabel.cpp \
+    sbaslercameracontrol.cpp \
+    form_product.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -43,7 +48,9 @@ HEADERS += \
     form_count.h \
     myapp.h \
     utilize.h \
-    cqlabel.h
+    cqlabel.h \
+    sbaslercameracontrol.h \
+    form_product.h
 
 
 FORMS += \
@@ -52,7 +59,8 @@ FORMS += \
     form_cam.ui \
     form_layout.ui \
     form_product.ui \
-    form_count.ui
+    form_count.ui \
+    form_product.ui
 
 
 
