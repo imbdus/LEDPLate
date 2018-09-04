@@ -26,9 +26,9 @@ public:
 
 public slots:
     void setComboBox(/*myApp *& ins*/);
+    void on_pushButton_clicked();
 
 private slots:
-    void on_pushButton_clicked();
 
     void on_comboBox_currentIndexChanged(int index);
 

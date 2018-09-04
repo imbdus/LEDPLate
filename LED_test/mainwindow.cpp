@@ -96,7 +96,7 @@ void MainWindow::InitApp()
 
 void MainWindow::PagedShift(int n)
 {
-    mmsg(QString::number(n));
+    //mmsg(QString::number(n));
     /* 这个顺序由void MainWindow::InitForm()
         //装载页面
         顺序决定
@@ -106,6 +106,8 @@ void MainWindow::PagedShift(int n)
         2   P2_image
         3   P1_setting
     */
+    QImage img;
+
 
     switch (n) {
     case 0://P4_product
@@ -113,8 +115,22 @@ void MainWindow::PagedShift(int n)
         break;
     case 1://P3_layout
         //在切换到layout的时候抓取一张图 并配置为控件的背景
-        QImage img;
         P4_product->m_control->GrabImageOnlyOne(img,50);
+        P3_layout->clabel->setPixmap(QPixmap::fromImage(img));
+        //DEBUG
+        img.save("imggg.png","PNG");
+
+        //P3_layout->clabel->bgdimg = QPixmap::fromImage(img);
+        //img.save(P3_layout->clabel->bgdimg);
+        //P3_layout->clabel->bgdimg.load("imggg.png");
+        //bgdimg.load("C:\\Users\\whale\\Desktop\\LED_test\\models.PNG");
+
+    //debug painter not active 切换到
+//        P3_layout->clabel->m_painter.begin(P3_layout->clabel);
+//        P3_layout->clabel->m_painter.drawPixmap(0,0,P3_layout->clabel->width(),P3_layout->clabel->height(),P3_layout->clabel->bgdimg);
+//        P3_layout->clabel->m_painter.end();
+
+        //P3_layout->clabel->P3_pageShift = true;
 
         break;
     case 2:

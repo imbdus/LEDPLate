@@ -8,9 +8,12 @@
 #include <QMouseEvent>
 #include <QKeyEvent>
 #include <QPainter>
+#include <QPaintEvent>
 #include <QPen>
 #include <QMessageBox>
 #include <QHBoxLayout>
+#include <QPixmap>
+#include <QPicture>
 
 enum PainStatus{
     initPaint   = 0,
@@ -37,6 +40,9 @@ public:
     int m_selectedIndex_bk;
     PainStatus m_CurrState;        //当前状态
     QRect m_MoveTo;
+    QPixmap bgdimg;
+    QPainter m_painter;
+    //bool P3_pageShift = false;
 
 signals:
     void selectChanged(int index);
@@ -54,7 +60,6 @@ private:
 //    int m_screenwidth;
 //    int m_screenheight;
     //bool myEdit;
-    QPainter m_painter;
 
 private slots:
     void editTopBar();

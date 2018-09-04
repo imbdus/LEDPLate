@@ -24,7 +24,11 @@ Form_product::Form_product(QWidget *parent) :
 //        ui->label_size->setText(QString("\345\260\272\345\257\270:%0*%1").arg(QString::number(size.width())).arg(QString::number(size.height()))); // 尺寸
         ui->image_window->setFixedSize(size);
     });
-    m_control->OpenCamera(m_control->cameras().first());
+
+    //if(m_control->cameras().empty() == true)
+      //      cout << "kjhkjh" << endl;
+   m_control->OpenCamera(m_control->cameras().first());
+
     m_control->setFeatureTriggerModeType(false);
 //    m_control->StartAcquire();
     //显示相机的参数初始值

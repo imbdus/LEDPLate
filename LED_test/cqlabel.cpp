@@ -2,7 +2,7 @@
 #define DEBUG
 #undef DEBUG
 #define mmsg(X) QMessageBox::information(this,"message",X);
-#define GOOD(X) QMessageBox::information(this,"GOOD",QString::number(X));
+//#define GOOD(X) QMessageBox::information(this,"GOOD",QString::number(X));
 
 //inline void mmsg(QString str, int a) {  QMessageBox::information(this,"message",str + QString::number(a));}
 
@@ -136,7 +136,7 @@ void CQLabel::mouseReleaseEvent(QMouseEvent *e)
     {
         m_endPoint = e->pos();
         QRect tmpRect(m_beginPoint,m_endPoint);
-        if(tmpRect.height()* tmpRect.width() > 60)
+        if(tmpRect.height()* tmpRect.width() > 60 || tmpRect.height()* tmpRect.width() < -60)
             m_layout.append(tmpRect);
         else
             mmsg("too small!")
@@ -188,7 +188,25 @@ void CQLabel::mouseMoveEvent(QMouseEvent *e)
 
 void CQLabel::paintEvent(QPaintEvent *e)
 {
+    QLabel::paintEvent(e);//很關鍵
+
     m_painter.begin(this);
+    //bgdimg.load("C:\\Users\\whale\\Desktop\\LED_test\\models.PNG"); //DEBUG 改动到PageShift
+
+    //if(true == P3_pageShift)
+    {
+        //m_painter.drawPixmap(0,0,this->width(),this->height(),bgdimg); //bgdimg的初始化在PageShift中
+        //P3_pageShift = false;
+    }
+
+    //DEBUG
+
+    //QString DEBUGmsg = "cqlabel w&h:" + QString::number(this->width()) + \
+            "," + QString::number(this->height()) + "," +QString::number(this->width()/this->height()) + \
+           "image w&h:" + QString::number(bgdimg.width()) + "," +\
+            QString::number(bgdimg.height()) + "," + QString::number(bgdimg.width()/bgdimg.height()) ;
+    //mmsg(DEBUGmsg);
+
 
     switch (m_CurrState) {
     case initPaint:
@@ -209,11 +227,11 @@ void CQLabel::paintEvent(QPaintEvent *e)
 
         break;
     default:
+
         break;
     }
 
     m_painter.end();
-
 }
 
 int CQLabel::getSelectRectIndex(QVector<QRect> &mlayout, QPoint pos)

@@ -27,6 +27,7 @@ void Form_layout::initCQLabel()
     /*CQLabel **/ clabel = new CQLabel(this);
     clabel->setGeometry(tmpStore);
     clabel->setStyleSheet("QLabel{border:2px solid rgb(0, 255, 0);}");
+    //clabel->bgdimg.load("imgg.PNG");
     clabel->show();
 
     //connect
@@ -61,12 +62,15 @@ void Form_layout::on_btn_save_clicked()
     }
     else {
         for(int i = 0; i < clabel->m_layout.size(); i++)
-        {
-            QString str = \
-                    QString::number( clabel->m_layout[i].x()) + ' ' +\
-                    QString::number( clabel->m_layout[i].y()) + ' ' + \
-                    QString::number( clabel->m_layout[i].width()) + ' ' + \
-                    QString::number( clabel->m_layout[i].height());
+        {//这里是保存layout 读layout在 utilize::getLayout()
+             //前四项 属于box 后两项属于控件
+            QString str = ( QString::number( clabel->m_layout[i].x()) + ' ' + \
+                    QString::number( clabel->m_layout[i].y()) + ' ' +  /*box左上 y*/ \
+                    QString::number( clabel->m_layout[i].width()) + ' ' +  /*box w*/ \
+                    QString::number( clabel->m_layout[i].height()) + ' ' +  /*box h*/ \
+                    QString::number( clabel->width()    ) + ' ' +       /*cqlabel w*/ \
+                    QString::number( clabel->height()   ));              /*cqlabel h*/
+            mmsg(str)
             fp.write(str.toLocal8Bit());
             if(i != clabel->m_layout.size() -1)
                 fp.write("\n");
@@ -76,7 +80,7 @@ void Form_layout::on_btn_save_clicked()
 }
 
 void Form_layout::on_pushButton_clicked()
-{
+{       
     clabel->m_layout.clear();    
     update();
 }

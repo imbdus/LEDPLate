@@ -18,6 +18,8 @@ class Form_layout : public QWidget
 public:
     explicit Form_layout(QWidget *parent = 0);
     ~Form_layout();
+    CQLabel * clabel;
+
 
 private slots:
 
@@ -27,7 +29,6 @@ private slots:
 
 private:
     Ui::Form_layout *ui;
-     CQLabel * clabel;
     void initCQLabel();
 };
 

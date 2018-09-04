@@ -59,11 +59,11 @@ public:
             return false;
         else {
             mylayout.clear();
-            int x,y,w,h;
+            int x,y,w,h,l_w,l_h;
             while (!fp.atEnd()) {
                 QByteArray line = fp.readLine();
                 char * str = line.data();
-                sscanf(str,"%d %d %d %d",&x,&y,&w,&h);
+                sscanf(str,"%d %d %d %d %d %d",&x,&y,&w,&h,&l_w,&l_h);
                 //qDebug() << x + ' ' + y + ' ' + w  + ' ' + h <<'\n';
                 //mmsg(str)
                 //delete(str);
