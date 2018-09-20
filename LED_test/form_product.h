@@ -16,19 +16,19 @@ public:
     ~Form_product();
 
 private slots:
-    void on_pushButton_CFMode_clicked();
-    void on_pushButton_SetMode_clicked();
-    void on_pushButton_GetMode_clicked();
-    void on_pushButton_SetExTime_clicked();
-    void on_pushButton_getExTime_clicked();
+//    void on_pushButton_CFMode_clicked();
+//    void on_pushButton_SetMode_clicked();
+//    void on_pushButton_GetMode_clicked();
+//    void on_pushButton_SetExTime_clicked();
+//    void on_pushButton_getExTime_clicked();
     void on_Exp_spinBox_valueChanged(int value);//曝光时间
     void on_Exp_horizontalSlider_valueChanged(int value);
     void on_Gain_spinBox_valueChanged(int value);
     void on_Gain_horizontalSlider_valueChanged(int value);
     void on_Mode_comboBox_activated(int index);
     void on_pushButton_Start_clicked();
-
     void on_pushButton_take_photo_clicked();
+
 
 private:
     Ui::Form_product *ui;

@@ -71,7 +71,7 @@ public:
     myAppData data;
     QSettings * setting;
 
-    // ========    .ini file  ==========
+    // ========  .ini file  ==========
 
     void ReadConfig(myApp *&ins);//,QString &path);
     void WriteConfig(myApp *&ins);//, QString &path);

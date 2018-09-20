@@ -30,7 +30,7 @@ void MainWindow::InitForm()
     //装载items
     ui->listWidget->clear();
 
-    QStringList btn_name = {"生产","划分","相机","设置"};
+    QStringList btn_name = {"相机设置","计算","无效页面","设置"};
     ui->listWidget->addItems(btn_name);
     QListWidgetItem * item_p;
     for(int i = 0; i < ui->listWidget->count(); i++)
@@ -107,6 +107,7 @@ void MainWindow::PagedShift(int n)
         3   P1_setting
     */
     QImage img;
+    QMatrix img_matrix;
 
 
     switch (n) {
@@ -114,13 +115,20 @@ void MainWindow::PagedShift(int n)
 
         break;
     case 1://P3_layout
+        P4_product->m_control->deleteAll();//删除P4上的相机应用
+        P3_layout->m_control = new SBaslerCameraControl(this);
+        P3_layout->m_control->initSome();
+        P3_layout->m_control->OpenCamera(P3_layout->m_control->cameras().first());
+        P3_layout->m_control->setFeatureTriggerModeType(false);
         //在切换到layout的时候抓取一张图 并配置为控件的背景
-        P4_product->m_control->GrabImageOnlyOne(img,50);
-        P3_layout->clabel->setPixmap(QPixmap::fromImage(img));
-        //DEBUG
-        img.save("imggg.png","PNG");
+        P3_layout->m_control->GrabImageOnlyOne(P3_layout->img,50);
 
-        //P3_layout->clabel->bgdimg = QPixmap::fromImage(img);
+//        P3_layout->clabel->setPixmap(QPixmap::fromImage(img));
+        P3_layout->clabel->bgdimg = QPixmap::fromImage(P3_layout->img);
+//        DEBUG
+//        img.save("imggg.png","PNG");
+
+
         //img.save(P3_layout->clabel->bgdimg);
         //P3_layout->clabel->bgdimg.load("imggg.png");
         //bgdimg.load("C:\\Users\\whale\\Desktop\\LED_test\\models.PNG");

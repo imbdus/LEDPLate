@@ -188,14 +188,15 @@ void CQLabel::mouseMoveEvent(QMouseEvent *e)
 
 void CQLabel::paintEvent(QPaintEvent *e)
 {
-    QLabel::paintEvent(e);//很關鍵
+    //QLabel::paintEvent(e);//很關鍵
 
     m_painter.begin(this);
+    m_painter.setPen(QColor(0, 160, 230));//设置颜色
     //bgdimg.load("C:\\Users\\whale\\Desktop\\LED_test\\models.PNG"); //DEBUG 改动到PageShift
 
     //if(true == P3_pageShift)
     {
-        //m_painter.drawPixmap(0,0,this->width(),this->height(),bgdimg); //bgdimg的初始化在PageShift中
+        m_painter.drawPixmap(0,0,this->width(),this->height(),bgdimg); //bgdimg的初始化在PageShift中
         //P3_pageShift = false;
     }
 

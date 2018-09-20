@@ -25,7 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 #--------------------------------------------Basler Camera-------------------------------------------
 INCLUDEPATH += $$PWD/include
+INCLUDEPATH += $$PWD/cv_include \
+                $$PWD/cv_include/opencv \
+                $$PWD/cv_include/opencv2
+
 LIBS += -L$$PWD/lib/x64 -lGCBase_MD_VC120_v3_0_Basler_pylon_v5_0 -lGenApi_MD_VC120_v3_0_Basler_pylon_v5_0 -lPylonBase_MD_VC120_v5_0 -lPylonC_MD_VC120 -lPylonGUI_MD_VC120_v5_0 -lPylonUtility_MD_VC120_v5_0
+
+LIBS += $$PWD/cv_vc15/lib/opencv_world342.lib
 #----------------------------------------------------------------------------------------------
 SOURCES += \
         main.cpp \
@@ -37,7 +43,9 @@ SOURCES += \
     form_count.cpp \
     cqlabel.cpp \
     sbaslercameracontrol.cpp \
-    form_product.cpp
+    form_product.cpp \
+    xu_utils.cpp \
+    regression.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -50,7 +58,9 @@ HEADERS += \
     cqlabel.h \
     sbaslercameracontrol.h \
     form_product.h \
-    form_product.h
+    form_product.h \
+    xu_utils.h \
+    regression.h
 
 
 FORMS += \

@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include "sbaslercameracontrol.h"
 #include <QDateTime>
 #include <QDebug>
@@ -56,7 +57,8 @@ void SBaslerCameraControl::UpdateCameraList()
     CInstantCameraArray cameraArray(devices.size());
     if(n == 0) {
         qDebug() << "Cannot find Any camera!";
-        return;
+        throw runtime_error("Check camera connection");
+//        return;
     }
     for (int i=0 ; i<cameraArray.GetSize() ; i++) {
         cameraArray[i].Attach(TLFactory.CreateDevice(devices[i]));
@@ -126,6 +128,7 @@ int SBaslerCameraControl::OpenCamera(QString cameraSN)
     } catch (GenICam::GenericException &e) {
 //        OutputDebugString(L"OpenCamera Error\n");
         qDebug() << "OpenCamera Error" << QString(e.GetDescription());
+        throw runtime_error("Check camera connection");
         m_isOpen = false;
         return -2;
     }
@@ -170,6 +173,25 @@ void SBaslerCameraControl::setGain(double gain)
     SetCamera(Type_Basler_GainRaw, gain);
 }
 
+int SBaslerCameraControl::getWidth()
+{
+    return QString::number(GetCamera(Type_Basler_Width)).toInt();
+}
+
+void SBaslerCameraControl::setWidth(int width)
+{
+    SetCamera(Type_Basler_Width, width);
+}
+
+int SBaslerCameraControl::getHeight()
+{
+    return QString::number(GetCamera(Type_Basler_Height)).toInt();
+}
+
+void SBaslerCameraControl::setHeight(int height)
+{
+    SetCamera(Type_Basler_Height, height);
+}
 int SBaslerCameraControl::getExposureTimeMin()
 {
     return DOUBLE_MIN;

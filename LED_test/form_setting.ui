@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>637</width>
-    <height>449</height>
+    <width>933</width>
+    <height>633</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>80</y>
-     <width>421</width>
-     <height>361</height>
+     <x>190</x>
+     <y>90</y>
+     <width>711</width>
+     <height>531</height>
     </rect>
    </property>
    <property name="title">
@@ -28,8 +28,8 @@
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>30</y>
+      <x>20</x>
+      <y>20</y>
       <width>141</width>
       <height>22</height>
      </rect>
@@ -38,8 +38,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>30</y>
+      <x>180</x>
+      <y>20</y>
       <width>80</width>
       <height>19</height>
      </rect>
@@ -51,10 +51,10 @@
    <widget class="QLabel" name="label_paint">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>70</y>
-      <width>371</width>
-      <height>261</height>
+      <x>30</x>
+      <y>60</y>
+      <width>648</width>
+      <height>486</height>
      </rect>
     </property>
     <property name="text">
@@ -65,8 +65,8 @@
   <widget class="QGroupBox" name="groupBox_3">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>80</y>
+     <x>20</x>
+     <y>90</y>
      <width>161</width>
      <height>291</height>
     </rect>
@@ -159,8 +159,8 @@
     <rect>
      <x>20</x>
      <y>10</y>
-     <width>561</width>
-     <height>71</height>
+     <width>551</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -172,13 +172,13 @@
    <property name="title">
     <string>路径</string>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
       <y>20</y>
       <width>481</width>
-      <height>41</height>
+      <height>56</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_5">

@@ -43,6 +43,12 @@ public:
     int getGain();//获取相机增益
     void setGain(double gain);//设置相机增益
 
+    int getWidth(); //图像宽度
+    void setWidth(int width);
+
+    int getHeight();//图像高度
+    void setHeight(int height);
+
     void setFeatureTriggerSourceType(QString type); // 设置种类
     QString getFeatureTriggerSourceType(); // 获取种类：软触发、外触发等等
 
